@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: first-container
-        image: rohitbhat8988/second:4
+        image: rohitbhatt8988/second:4
         ports:
         - containerPort: 80
 ---
