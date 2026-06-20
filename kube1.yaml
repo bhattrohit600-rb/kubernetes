@@ -1,22 +1,22 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: my-first-replicaset
+  name: my-first-deployment
   labels:
-    app: web
+    app: webserver
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: web
+      app: my-first-app
   template:
     metadata:
       labels:
-        app: web
+        app: my-first-app
     spec:
       containers:
-      - name: my-first-container
-        image: rohitbhatt8988/second:4
+      - name: first-container
+        image: rohitbhat8988/kube1.yaml:4
         ports:
         - containerPort: 80
 ---
@@ -27,7 +27,8 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: web
+    app: my-first-app
   ports:
-  - port: 80
-    targetPort: 80
+    - protocol: TCP
+      port: 80
+      targetPort: 80
