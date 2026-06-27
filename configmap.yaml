@@ -4,5 +4,5 @@ metadata:
   name: webapp-config
   namespace: default
 data:
-  DATABASE_URL: "192.168.121.34"
+  DATABASE_URL: "192.168.121.35"
   MAX_CONNECTIONS: "100"
