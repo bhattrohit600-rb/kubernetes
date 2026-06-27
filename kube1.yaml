@@ -33,7 +33,7 @@ spec:
              key: MAX_CONNECTIONS
 
         envFrom:
-        - SecretRef: 
+        - secretRef: 
            name: app-secret-auto
 ---
 apiVersion: v1
