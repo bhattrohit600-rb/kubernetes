@@ -19,21 +19,22 @@ spec:
         image: rohitbhatt8988/second:4
         ports:
         - containerPort: 80
-      env:
-      - name: DATABASE_URL
-        valueFrom:
-         configMapKeyRef:
-          name: webapp-config
-          key: DATABASE_URL
-      - name:  MAX_CONNECTIONS
-        valueFrom:
-          configMapKeyRef:
-          name: webapp-config
-          key: MAX_CONNECTIONS
+        env:
+         - name: DATABASE_URL
+           valueFrom:
+            configMapKeyRef:
+             name: webapp-config
+             key: DATABASE_URL
 
-      envFRom:
-      - SecretRef: 
-          name: app-secret-auto
+         - name:  MAX_CONNECTIONS
+           valueFrom:
+            configMapKeyRef:
+             name: webapp-config
+             key: MAX_CONNECTIONS
+
+        envFrom:
+        - SecretRef: 
+           name: app-secret-auto
 ---
 apiVersion: v1
 kind: Service
