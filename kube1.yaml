@@ -22,18 +22,10 @@ spec:
         volumeMounts:
           - name: config-vol
             mountPath: /etc/config
-          - name: Secret-vol
+          - name: secret-vol
             mountPath: /etc/secret
             readOnly: true 
-
-        volumes:
-          - name: config-vol
-            configMap:
-              name: webapp-config
-
-          - name: secret-vol
-            secret:
-              secretName: app-secret-auto
+            
         env:
          - name: DATABASE_URL
            valueFrom:
@@ -50,6 +42,15 @@ spec:
         envFrom:
         - secretRef: 
            name: app-secret-auto
+    volumes:
+    - name: config-vol
+      configMap:
+        name: webapp-config
+    - name: secret-vol
+      secret:
+        secretName: app-secret-auto
+
+
 ---
 apiVersion: v1
 kind: Service
