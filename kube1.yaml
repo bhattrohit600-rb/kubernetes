@@ -25,7 +25,7 @@ spec:
           - name: secret-vol
             mountPath: /etc/secret
             readOnly: true 
-            
+
         env:
          - name: DATABASE_URL
            valueFrom:
@@ -40,15 +40,15 @@ spec:
              key: MAX_CONNECTIONS
 
         envFrom:
-        - secretRef: 
-           name: app-secret-auto
-    volumes:
-    - name: config-vol
-      configMap:
-        name: webapp-config
-    - name: secret-vol
-      secret:
-        secretName: app-secret-auto
+         - secretRef: 
+            name: app-secret-auto
+      volumes:
+      - name: config-vol
+        configMap:
+          name: webapp-config
+      - name: secret-vol
+        secret:
+          secretName: app-secret-auto
 
 
 ---
